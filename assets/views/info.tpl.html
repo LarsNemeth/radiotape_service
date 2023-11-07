@@ -1,0 +1,28 @@
+
+<div id="overlay" ng-hide="playing === true"></div>
+<div id="overlay_start" ng-hide="playing === true" >
+    <div class="left-bar">
+        <img ui-sref="nowPlaying" class="hide" src="./assets/images/back_button.png">
+        <span>{{genre}}</span>
+        <img src="./assets/images/radiotape_logo.png">
+    </div>
+    <div class="image" style="background-image: url('./assets/images/cover-images/Platte.jpg')">
+    </div>
+    <div class="main scrollable">
+
+        <div class="login_header">radiotape.fm login</div>
+        <form id="login_form" method="post" role="form">
+            <div class="form-group"></div>
+            <input type="text"      ng-model="username" name="login"    class="form-control" value="" placeholder="User"><br />
+            <input type="password"  ng-model="password" name="password" class="form-control" value="" placeholder="Passwort"><br />
+
+            <input ng-click="login()" type="submit" name="commit" class="btn btn-default" value="Anmelden">
+        </form>
+
+        <div class="fineprint"><a href="https://radiotape.de" target="_blank">über radiotape.fm</a> |
+            <a href="https://radiotape.de#page-footer" target="_blank">Impressum</a></div>
+    </div>
+</div>
+
+
+

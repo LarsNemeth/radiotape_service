@@ -1,0 +1,23 @@
+<div id="playlist_wrapper">
+    <div id="playlist_card" class="scrollable">
+        <ul class="list-unstyled">
+            <li>
+                <div>
+                    <div>{{playlist.0.Time | date: 'H:mm'}}</div>
+                    <div class="clearfix"><span>{{playlist.0.Title}}</span><br/>
+                    {{playlist.0.Artist}} - {{playlist.0.Album}}</div>
+                </div>
+                <img ui-sref="nowPlaying" class="clickable" src="./assets/images/back_button.png">
+            </li>
+            <li>
+                <ul class="list-unstyled">
+                    <li ng-repeat="track in playlist" ng-if="$index > 0">
+                        <div >{{track.Time | date: 'H:mm'}}</div>
+                        <div class="clearfix"><span>{{track.Title}}</span> <br/>
+                         {{track.Artist}} - {{track.Album}}</div>
+                    </li>
+                 </ul>
+            </li>
+        </ul>
+    </div>
+</div>

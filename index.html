@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>radiotape.fm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="./vendor/normalize.css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./vendor/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./vendor/angular-slider/slider.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+
+    <script src="./vendor/headjs/dist/1.0.0/head.min.js"    type="text/javascript" ></script>
+    <script src="./assets/js/boot.js"                       type="text/javascript" ></script>
+
+
+</head>
+<body ontouchstart="" onmouseover="">
+
+<div id="wrapper" ng-controller="StationCtrl" class="container" >
+
+    <canvas class="background_blur" id="blurCanvas" width="1024" height="768" data-canvas></canvas>
+    <!--<img id="background_blur" ng-src="{{coverUrl}}" blurred-image-directive />-->
+    <!-- <input type="button" value="Play" onClick="javascript:document.getElementsByTagName('audio')[0].play();" /> -->
+
+    <div class="container header" ng-include src="'./assets/views/stations.tpl.html'"></div>
+    <div ui-view style="height: 65.5%" ></div>
+    <div ng-class="{almostHidden: !streamId}" id="footer_wrapper" ng-include src="'./assets/views/footer.tpl.html'"></div>
+
+</div>
+
+
+<noscript>
+    This website requires javascript. Javascript is disabled in your Browser.
+</noscript>
+
+</body>
+</html>

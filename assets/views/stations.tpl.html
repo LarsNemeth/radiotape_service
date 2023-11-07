@@ -1,0 +1,53 @@
+
+
+<div ng-show="streamId" class="container"  id="stations" >
+        <div class="pull-left" id="button_holder">
+            <div id="location_logo" style="background-image: url('{{logo}}')" ></div><div id="channel_button" ui-sref="scheduleInfo" class="clickable" ng-if="autoPresetMode === false"   src="./assets/images/scheduler_icon.png">
+            </div><div id="channel_button_active" class="clickable" ng-if="autoPresetMode === true" ng-click="toggleAutoPresetMode()" src="./assets/images/channels_icon.png"></div>
+        </div>
+
+        <div id="channel_list">
+
+            <div ng-if="(autoPresetMode === false) || ( autoPresetModeMayExit === true && autoPresetMode === true )" id="channel_list_scolling_container" class="pull-right scrollable">
+
+                <ul>
+                    <li ng-repeat="stream in streams" ui-sref="stationInfo({id:stream._id})" ng-class="{active: stream._id == activePresetId}">
+                        <img class="channel_buttons" ng-src="{{stream.imgSmall}}">
+                        <span class="channel_buttons_title">{{stream.name}}</span>
+                        <img ng-src="{{stream.imgIcon}}" class="img_icon">
+                    </li>
+                </ul>
+
+            </div>
+
+            <div ng-click="scrollRight()" ng-class="{hidden: (autoPresetMode && !autoPresetModeMayExit)}" class="scroll-button scroll-left-button glyphicon glyphicon-chevron-left" ></div>
+            <div ng-click="scrollLeft()" ng-class="{hidden: (autoPresetMode && !autoPresetModeMayExit)}" class="scroll-button scroll-right-button glyphicon glyphicon-chevron-right"></div>
+        </div>
+
+        <!-- not necessary since we display channels while channelSwitchPending -->
+        <!--<div ng-if="channelSwitchPending === true">
+            <h1 class="pull-left" style="display: none">Neuer Channel: {{channelSwitchNewName}} <span ng-if="channelSwitchInSeconds !== 0"> in - {{channelSwitchFormattedMinutes}}:{{channelSwitchFormattedSeconds}} </span></h1>
+
+            <ul class="list-unstyled list-inline pull-right">
+                <li ng-click="cancelSwitch()" >Abbrechen</li>
+            </ul>
+        </div>-->
+
+        <div id="schedule"  class="pull-left schedule schedule_padding" ng-if="autoPresetMode === true  && autoPresetModeMayExit === false">
+            <div>
+                <time>{{scheduleLastPresetTime}}</time>
+                <time>{{scheduleCurrentPresetTime}}</time>
+                <time>{{scheduleNextPresetTime}}</time>
+            </div>
+
+            <div>
+                <ul class="list-unstyled">
+                    <li><span>{{scheduleLastPreset}}</span></li>
+                    <li><span>{{scheduleCurrentPreset}}</span></li>
+                    <li><span>{{scheduleNextPreset}}</span></li>
+                </ul>
+            </div>
+
+        </div>
+
+</div>

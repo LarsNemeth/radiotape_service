@@ -1,0 +1,35 @@
+<div id="overlay"></div>
+<div id="overlay_stationinfo" >
+    <div class="left-bar">
+        <img ui-sref="nowPlaying" class="clickable" src="./assets/images/back_button.png">
+        <span>{{title}}</span>
+        <img src="./assets/images/radiotape_logo.png">
+    </div>
+    <div class="image" style="background-image: url('{{imageURL}}')">
+    </div>
+    <div class="main scrollable">
+        <h4>{{genre}}</h4>
+        <div class="channel-button clickable" ng-if="staticInfo !== true" ng-click="changePreset()" style="background-image: url({{imageIcon}})"></div>
+        <div class="channel-button clickable" ng-if="staticInfo === true" ng-click="toggleAutoPresetMode()" style="background-image: url({{imageIcon}})"></div>
+        <div class="channel-description scrollable"  ng-if="staticInfo !== true">{{description}}</div>
+
+        <div id="station-info-timetable" ng-if="staticInfo === true">
+            <div  class="pull-left schedule " >
+                <div>
+                    <time>{{schedule.lastPresetTime}}</time>
+                    <time>{{schedule.currentPresetTime}}</time>
+                    <time>{{schedule.nextPresetTime}}</time>
+                </div>
+
+                <div>
+                    <ul class="list-unstyled">
+                        <li><span>{{schedule.lastPreset}}</span></li>
+                        <li><span>{{schedule.currentPreset}}</span></li>
+                        <li><span>{{schedule.nextPreset}}</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "name": "radiotape.fm",
+  "version": "0.0.1",
+  "description": "Angular.js client",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "webArtig GmbH",
+  "license": "ISC",
+  "devDependencies": {
+    "bower": "*",
+    "grunt": "^0.4.4",
+    "grunt-bowercopy": "*",
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-compass": "*",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-requirejs": "^0.4.4",
+    "grunt-contrib-watch": "*",
+    "grunt-open": "^0.2.3",
+    "matchdep": "*",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-processhtml": "^0.3.3",
+    "grunt-autoprefixer": "^1.0.1",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.9.0"
+  },
+  "dependencies": {
+    "grunt-newer": "^0.7.0"
+  }
+}

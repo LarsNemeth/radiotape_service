@@ -1,0 +1,40 @@
+<div id="overlay" ng-hide="playing === true"></div>
+<div id="overlay_start" ng-hide="playing === true" >
+    <div class="left-bar">
+        <img ui-sref="nowPlaying" class="hide" src="./assets/images/back_button.png">
+        <span>{{genre}}</span>
+        <img src="./assets/images/radiotape_logo.png">
+    </div>
+    <div ng-show="activePresetCover !== ''" class="image" style="background-image: url('{{activePresetCover}}')"></div>
+    <div ng-show="activePresetCover === ''" class="image" style="background-image: url('./assets/images/timetable_image.png')"></div>
+    <div class="main scrollable">
+        <h4>{{activePresetName}}</h4>
+        <div ng-show="imageIcon !== undefined" class="channel-button clickable" style="background-image: url('{{imageIcon}}')" ng-click="play()" onclick="document.getElementById('audiostream').play();"></div>
+        <div ng-show="imageIcon === undefined" class="channel-button clickable" style="background-image: url('./assets/images/scheduler_pfeil.png')" ng-click="play()" onclick="document.getElementById('audiostream').play();"></div>
+
+        <h4 ng-click="play()" onclick="document.getElementById('audiostream').play();">Jetzt starten</h4>
+    </div>
+</div>
+
+<div class="container">
+    <div class="pull-left half" id="player_cover">
+        <img ng-src="{{coverUrl}}"/><br/>
+    </div>
+
+    <div id="player_info" class="pull-left half">
+        <div >
+            <div id="player_station">{{activePresetName}}</div>
+            <div id="player_title">{{title}}</div>
+            <div id="player_artist">{{artist}} - {{album}}</div>
+
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="{{percent}}" aria-valuemin="0"
+                     aria-valuemax="{{duration}}" style="width: {{percent}}%; height: 2px">
+
+                </div>
+            </div>
+            <a ui-sref="playlist"><div id="playlist_button" class="clickable"><img id="playlist_icon" src="./assets/images/playlist_icon.png"> <span id="playlist_text">Playlist</span></div></a>
+        </div>
+    </div>
+
+</div>
